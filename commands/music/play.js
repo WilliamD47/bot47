@@ -102,6 +102,7 @@ module.exports = class PlayCommand extends Command {
       } else if (message.guild.musicData.isPlaying == true) {
         message.say(
           `Playlist - :musical_note:  ${playlist.title} :musical_note: has been added to queue`
+
         );
         return;
       }
@@ -231,6 +232,7 @@ module.exports = class PlayCommand extends Command {
                 songEmbed.delete();
               }
               message.say(`${video.title} added to queue`);
+              console.log('${video.title}')
               return;
             }
           })

@@ -1,15 +1,15 @@
 {
-  "name": "master-bot",
+  "name": "bot47",
   "version": "1.0.0",
-  "description": "a discord music bot with guild , gifs and misc commands",
+  "description": "a discord music bot with guild and music",
   "main": "index.js",
   "scripts": {
     "start": "node .",
     "pretest": "eslint --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Nir Gal",
-  "license": "ISC",
+  "author": "William Dodd",
+  "license": "",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "cheerio": "^1.0.0-rc.3",

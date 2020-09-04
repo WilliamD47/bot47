@@ -42,8 +42,10 @@ module.exports = class LyricsCommand extends Command {
       );
     }
     const sentMessage = await message.channel.send(
-      '👀 Searching for lyrics 👀'
+      'Sorry Lyrics are temporarily broken at the moment :/'
+       
     );
+      return; //WilliamD47
 
     // remove stuff like (Official Video)
     songName = songName.replace(/ *\([^)]*\) */g, '');
@@ -102,74 +104,7 @@ module.exports = class LyricsCommand extends Command {
         return;
       });
   }
+  //WilliamD47
 
-  static searchSong(query) {
-    return new Promise(async function(resolve, reject) {
-      const searchURL = `https://api.genius.com/search?q=${encodeURI(query)}`;
-      const headers = {
-        Authorization: `Bearer ${geniusLyricsAPI}`
-      };
-      try {
-        const body = await fetch(searchURL, { headers });
-        const result = await body.json();
-        const songPath = result.response.hits[0].result.api_path;
-        resolve(`https://api.genius.com${songPath}`);
-      } catch (e) {
-        reject('No song has been found for this query');
-      }
-    });
-  }
-
-  static getSongPageURL(url) {
-    return new Promise(async function(resolve, reject) {
-      const headers = {
-        Authorization: `Bearer ${geniusLyricsAPI}`
-      };
-      try {
-        const body = await fetch(url, { headers });
-        const result = await body.json();
-        if (!result.response.song.url) {
-          reject('There was a problem finding a URL for this song');
-        } else {
-          resolve(result.response.song.url);
-        }
-      } catch (e) {
-        console.log(e);
-        reject('There was a problem finding a URL for this song');
-      }
-    });
-  }
-
-  static getLyrics(url) {
-    return new Promise(async function(resolve, reject) {
-      try {
-        const response = await fetch(url);
-        const text = await response.text();
-        const $ = cheerio.load(text);
-        let lyrics = $('.lyrics')
-          .text()
-          .trim();
-        if (!lyrics) {
-          $('.Lyrics__Container-sc-1ynbvzw-2')
-            .find('br')
-            .replaceWith('\n');
-          lyrics = $('.Lyrics__Container-sc-1ynbvzw-2').text();
-          if (!lyrics) {
-            reject(
-              'There was a problem fetching lyrics for this song, please try again'
-            );
-          } else {
-            resolve(lyrics.replace(/(\[.+\])/g, ''));
-          }
-        } else {
-          resolve(lyrics.replace(/(\[.+\])/g, ''));
-        }
-      } catch (e) {
-        console.log(e);
-        reject(
-          'There was a problem fetching lyrics for this song, please try again'
-        );
-      }
-    });
-  }
+  
 };
