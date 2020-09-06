@@ -116,3 +116,4 @@ Anyone is welcome to suggest new features and improve code quality!
 [malokdev](https://github.com/malokdev) - uptime command
 
 [chimaerra](https://github.com/chimaerra) - minor command tweaks
+# bot-47

@@ -8,9 +8,9 @@ const youtube = new Youtube(youtubeAPI);
 module.exports = class PlayCommand extends Command {
   constructor(client) {
     super(client, {
-      name: 'play',
-      aliases: ['play-song', 'add'],
-      memberName: 'play',
+      name: 'p',
+      aliases: ['play-songg', 'addd'],
+      memberName: 'p',
       group: 'music',
       description: 'Play any song or playlist from youtube',
       guildOnly: true,
@@ -298,7 +298,6 @@ module.exports = class PlayCommand extends Command {
               if (message.guild.me.voice.channel) {
                 message.guild.me.voice.channel.leave();
                 message.say('The song ended so I left')
-
                 return;
               }
             }
