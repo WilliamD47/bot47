@@ -50,7 +50,7 @@ client.once('ready', () => {
   console.log('Ready!');
   client.user.setActivity(client.guilds.cache.size + " servers", {
     type: 'WATCHING',
-    url: 'https://github.com/galnir/Master-Bot'
+    url: 'https://github.com/williamd47/bot47'
   });
 });
 
